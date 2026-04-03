@@ -5,7 +5,7 @@ const int buttonPin = 2;
 
 void setup() {
   myservo.attach(9);
-  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(buttonPin, INPUT);
   
 }
 
