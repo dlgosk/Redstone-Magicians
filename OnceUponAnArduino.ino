@@ -1,20 +1,37 @@
 #include <Servo.h>
 
 Servo myservo;
+Servo secondServo;
 const int buttonPin = 2;
+const int buttonPin = 4;
 
 void setup() {
   myservo.attach(9);
-  pinMode(buttonPin, INPUT);
+  pinMode(buttonPin, INPUT_PULLUP);
+  secondServo.attach(12);
+  pinMode(buttonPin1, INPUT_PULLUP);
   
 }
 
-//currently set for 360 servo
+
 void loop() {
+  //---FIRST SERVO------
   if (digitalRead (buttonPin) == HIGH) {
-    myservo.write(180); //360 servo, speed
+    for (int i = 0; i < 5; i++) {
+    myservo.write(180); 
+    delay(500);
+    myservo.write(0);
+    delay(500);
+  }
   } else{
     myservo.write(90);
+  }
+
+  //----SECOND SERVO------
+   if (digitalRead (buttonPin1) == HIGH) {
+    secondServo.write(180);
+  } else {
+    secondServo.write(90);
   }
 }
 
